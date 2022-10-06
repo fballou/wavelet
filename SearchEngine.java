@@ -8,17 +8,19 @@ public class SearchEngine implements URLHandler{
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
             return stringz.toString();
-        } else if (url.getPath().equals("/add")) {
+        } 
+        else if (url.getPath().equals("/add")) {
             stringz.add(url.getQuery());
             System.out.println(url.getPath());
             return String.format("Query added!");
-        } else {
+        } 
+        else {
             System.out.println("Path: " + url.getPath());
-            if (url.getPath().contains("/add")) {
+            if (url.getPath().contains("/search")) {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
-                    // num += Integer.parseInt(parameters[1]);
-                    return String.format("You've searched for:", parameters[1]);
+                    stringz.add(parameters[1]);
+                    return parameters[1] + "query has been added";
                 }
             }
             return "404 Not Found!";
