@@ -14,12 +14,8 @@ public class SearchEngine implements URLHandler{
             String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
                     stringz.add(parameters[1]);
-                    return parameters[1] + "query has been added";
+                    return parameters[1] + " query has been added";
                 }
-            
-            // stringz.add(url.getQuery());
-            // System.out.println(url.getPath());
-            // return String.format("Query added!");
             return "404 Not Found!";
         } 
         else {
